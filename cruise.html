@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
- 
-<body>
-
-<h2>Getting input</h2>
-
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <head>
+        <title>Goes cruise</title>
+    </head> 
+<form> 
+    <div class="form-group">
+        <label for="sharesCabin">Shares Cabin</label>
+        <input type="checkbox" id="sharesCabin" value="True">
+        <label for="breakfast">Breakfast</label>
+        <input type="checkbox" id="breakfast" value="True">
+        <label for="poolPass">Pool Pass</label>
+        <input type="checkbox" id="poolPass" value="False"><br><br>
+    </div>
+    <input type="button" value="Select a cruise" onclick="selectCruise()"><br><br>
+    <p id="cruiseDetails"></p>
 </form>
-<p id="result">This text will be replaced </p>
+<body>
+    <h2>Venkateswararao goes on a cruise </h2>
 <script> 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)  
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    var my_cruise = {};
+    function selectCruise() {      
+     my_cruise = {};
+    my_cruise.shared = document.getElementById("sharesCabin").checked;
+    my_cruise.breakfast = document.getElementById("breakfast").checked;
+    my_cruise.pool = document.getElementById("poolPass").checked;
+    document.getElementById("cruiseDetails").innerHTML = "<pre>" + JSON.stringify(my_cruise, null, 2) + "</pre>";
     }
-}
-</script>
-
-
+    </script>
+    
 </body>
 </html> 
