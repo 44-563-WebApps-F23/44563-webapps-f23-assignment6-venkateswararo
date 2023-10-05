@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Amount of Tips</title>
+</head>
+<body>
+    <h2>Venkateswararao shows tip amounts</h2>
+<label for="baseAmount">Enter base amount:</label>
+<input type="number" id="baseAmount" value="50"><br><br>
+<label for="tipPercent">Enter the tip percent:</label>
+<input type="number" id="tipPercent" value="15"><br><br>
+<input type="button" value="Show tip" onclick="tips()"><br><br>
+<div id="tipResults"></div><br>
+<form>
+    <label><input type="radio" name="operation" value="sum" onclick="chooseOp()"> Sum</label>
+    <label><input type="radio" name="operation" value="difference" onclick="chooseOp()"> Difference</label>
+    <label><input type="radio" name="operation" value="product" onclick="chooseOp()"> Product</label><br>
+    <div id="output"></div>
+</form>
+<script> 
+function tips() {
+var gv1 = parseFloat(document.getElementById("baseAmount").value);
+var gv2= parseFloat(document.getElementById("tipPercent").value);
+var toShow = "";
+for (var i = 0; i < 5; i++) {
+    var calculatedTip = (gv1 * (gv2 + i * 4)) / 100;
+toShow += (gv2 + i * 4) + "% is " + calculatedTip.toFixed(1) + "; ";
+}
+document.getElementById("tipResults").innerHTML = "Tips are: " + toShow;
+}
+function chooseOp() {
+        var baseAmount = parseFloat(document.getElementById("baseAmount").value);
+        var tipPercent = parseFloat(document.getElementById("tipPercent").value);
+        var operation = document.querySelector('input[name="operation"]:checked').value;
+        var result;
+        if (operation === "sum") {
+            result = baseAmount + tipPercent;
+        } else if (operation === "difference") {
+                result = baseAmount - tipPercent;
+            } else if (operation === "product") {
+                result = baseAmount * tipPercent;
+            }
+            document.getElementById("output").innerHTML = operation.charAt(0).toUpperCase() +
+                operation.slice(1) + " of " + baseAmount + " and " + tipPercent + " is " + result;
+        }
+</script>
+</body>
+</html> 
