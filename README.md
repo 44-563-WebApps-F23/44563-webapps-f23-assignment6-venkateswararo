@@ -2,5 +2,5 @@
 # WebApps-F23-Assignment-6
 Introduction to Java Script and DOM
 
-<a href="https://github.com/44-563-WebApps-F23/44563-webapps-f23-assignment6-venkateswararo/Author.html">Hosted at GitHub Pages</a>
+<a href=" https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-venkateswararo/">Hosted at GitHub Pages</a>
 
