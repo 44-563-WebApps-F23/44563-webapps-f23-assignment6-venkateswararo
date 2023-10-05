@@ -8,7 +8,7 @@
     <label for="form1_password">The hidden author name </label>
     <input type="password" id="SID" value="Dickens" name="form1_password" autofocus> <br>
     <label for="form1_author">Guess the author </label>
-    <input type="text" id="SID1" id="guess" name="form1_author" autofocus> <br>
+    <input type="text"  id="guess" name="form1_author" autofocus> <br>
     <input type="button" onclick="resolveForm()" value="Check the guess">
 </form>
 <p id="result">result </p>
@@ -18,7 +18,7 @@
     function resolveForm() {
         console.log("Getting form values")
         let pin = document.getElementById("SID").value
-        let name = document.getElementById("SID1").value
+        let name = document.getElementById("guess").value
         out = document.getElementById("result")
         if (pin == name) {
             good++;
@@ -26,6 +26,10 @@
             out.innerHTML = ('right:' + good);
         } else {
             oops++;
+            if(oops>7){
+                document.getElementById("guess").disabled=true;
+                alert("Sorry , ran out of guesses")
+            }
             alert("Sorry, try again!");
             out.innerHTML = ('wrong:' + oops);
         }
